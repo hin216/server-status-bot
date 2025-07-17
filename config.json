@@ -10,12 +10,12 @@
     },
     "minecraft": {
         "servers": [{
-            "name": "Hinanson Server",
+            "name": "新增以下域名以連接伺服器",
             "ip": "hinanson216.mcsv.pro",
             "port": 49187,
             "channelId": "1395481135227736085",
             "messageId": "1361782035923992848",
-            "updateInterval": 3000,
+            "updateInterval": 30000,
             "display": {
                 "type": "banner",
                 "banner": {
