@@ -1,12 +1,3 @@
-/**
- * Minecraft Server Status Bot
- * Created by Team BLK
- * 
- * YouTube: https://www.youtube.com/@team_blk_official
- * Discord: adithyadev.blk
- * GitHub: https://github.com/BLKOFFICIAL
- */
-
 require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder, ActivityType, AttachmentBuilder } = require('discord.js');
 const util = require('minecraft-server-util');
@@ -127,7 +118,7 @@ async function generatePlayerChart(serverId, color = '#3498db') {
         data: {
             labels,
             datasets: [{
-                label: 'Player Count',
+                label: '玩家數量',
                 data,
                 borderColor: color,
                 backgroundColor: color + '33', // Add transparency
@@ -152,7 +143,7 @@ async function generatePlayerChart(serverId, color = '#3498db') {
                 },
                 title: {
                     display: true,
-                    text: 'Player Count History',
+                    text: '玩家數量歷史紀錄',
                     color: '#FFFFFF',
                     font: {
                         size: 16,
@@ -259,29 +250,29 @@ async function updateServerStatus(serverConfig) {
 
     // Add server info fields
     embed.addFields(
-        { name: '📡 Server', value: `${serverConfig.name} (${serverConfig.ip}:${serverConfig.port})`, inline: true },
-        { name: '🔌 Status', value: status.online ? '✅ Online' : '❌ Offline', inline: true }
+        { name: '📡 伺服器連接地址', value: `${serverConfig.name}\n${serverConfig.ip}:${serverConfig.port}`, inline: true },
+        { name: '🔌 狀態', value: status.online ? '✅ 在線' : '❌ 離線', inline: true }
     );
 
     if (status.online) {
         embed.addFields(
-            { name: '👥 Players', value: `${status.players}/${status.maxPlayers}`, inline: true },
-            { name: '🏷️ Version', value: status.version, inline: true },
-            { name: '📊 Ping', value: `${status.ping}ms`, inline: true },
-            { name: '📝 MOTD', value: status.description || 'No description available' }
+            { name: '👥 玩家', value: `${status.players}/${status.maxPlayers}`, inline: true },
+            { name: '🏷️ 版本', value: status.version, inline: true },
+            { name: '📊 延遲', value: `${status.ping}ms`, inline: true },
+            { name: '📝 描述', value: status.description || '沒有可用的描述' }
         );
 
         if (serverConfig.display.showNextUpdate) {
             const nextUpdate = Math.floor((Date.now() + serverConfig.updateInterval) / 1000);
             embed.addFields({
-                name: '⏱️ Next Update',
+                name: '⏱️ 下次更新',
                 value: `<t:${nextUpdate}:R>`,
                 inline: true
             });
         }
     } else {
         embed.addFields(
-            { name: '❌ Error', value: status.error || 'Could not connect to server' }
+            { name: '❌ 錯誤', value: status.error || '無法連接到伺服器' }
         );
     }
 
@@ -372,7 +363,7 @@ client.on('interactionCreate', async interaction => {
         
         if (!server) {
             await interaction.reply({
-                content: `Server "${serverName}" not found in configuration!`,
+                content: `在設定中找不到伺服器 "${serverName}"！`,
                 ephemeral: true
             });
             return;
@@ -380,31 +371,31 @@ client.on('interactionCreate', async interaction => {
 
         const status = await checkServerStatus(server.ip, server.port);
         const embed = new EmbedBuilder()
-            .setTitle(`${server.name} Status`)
+            .setTitle(`${server.name} 狀態`)
             .setColor(status.online ? config.embed.colors.online : config.embed.colors.offline)
             .setTimestamp()
             .setFooter(config.embed.footer);
 
         if (status.online) {
             embed.addFields(
-                { name: '🔌 Status', value: '✅ Online', inline: true },
-                { name: '👥 Players', value: `${status.players}/${status.maxPlayers}`, inline: true },
+                { name: '🔌 狀態', value: '✅ 線上', inline: true },
+                { name: '👥 玩家', value: `${status.players}/${status.maxPlayers}`, inline: true },
                 { name: '📊 Ping', value: `${status.ping}ms`, inline: true },
-                { name: '🏷️ Version', value: status.version }
+                { name: '🏷️ 版本', value: status.version }
             );
 
             if (server.display.showNextUpdate) {
                 const nextUpdate = Math.floor((Date.now() + server.updateInterval) / 1000);
                 embed.addFields({
-                    name: '⏱️ Next Update',
+                    name: '⏱️ 下次更新',
                     value: `<t:${nextUpdate}:R>`,
                     inline: true
                 });
             }
         } else {
             embed.addFields(
-                { name: '🔌 Status', value: '❌ Offline', inline: true },
-                { name: '❌ Error', value: status.error || 'Could not connect to server' }
+                { name: '🔌 狀態', value: '❌ 離線', inline: true },
+                { name: '❌ 錯誤', value: status.error || '無法連接到伺服器' }
             );
         }
 
@@ -463,4 +454,4 @@ app.listen(PORT, () => {
 });
 
 // Start the bot
-client.login(process.env.DISCORD_TOKEN); 
+client.login(process.env.DISCORD_TOKEN);
