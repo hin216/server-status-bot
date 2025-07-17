@@ -250,7 +250,7 @@ async function updateServerStatus(serverConfig) {
 
     // Add server info fields
     embed.addFields(
-        { name: '📡 伺服器連接地址', value: `${serverConfig.name}\n${serverConfig.ip}:${serverConfig.port}`, inline: true },
+        { name: '📡 伺服器連接域名', value: `${serverConfig.name}\n${serverConfig.ip}:${serverConfig.port}`, inline: true },
         { name: '🔌 狀態', value: status.online ? '✅ 在線' : '❌ 離線', inline: true }
     );
 
