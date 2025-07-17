@@ -3,7 +3,7 @@
         "presence": {
             "status": "online",
             "activities": [{
-                "name": "Hypixel Server",
+                "name": "Hinanson Server",
                 "type": "WATCHING"
             }]
         }
@@ -13,13 +13,13 @@
             "name": "Hypixel",
             "ip": "hypixel.net",
             "port": 25565,
-            "channelId": "1361757965014798526",
+            "channelId": "1395481135227736085",
             "messageId": "1361782035923992848",
             "updateInterval": 30000,
             "display": {
                 "type": "banner",
                 "banner": {
-                    "url": "https://cdn.discordapp.com/attachments/1361027416272797959/1361766298492866701/standard.gif?ex=67fff331&is=67fea1b1&hm=a49eee30b71b4252a57c3ac1c19f4d60651ca1959d0e8cde39cbc8f55bfc65fd&",
+                    "url": "https://stickypiston.co/wp-content/uploads/adventurerpg-ultimate.jpg",
                     "enabled": true
                 },
                 "chart": {
@@ -27,19 +27,19 @@
                     "historyHours": 24,
                     "color": "#3498db"
                 },
-                "showNextUpdate": true
+                "showNextUpdate": false
             }
         }]
     },
     "embed": {
         "colors": {
-            "online": "#00ff00",
+            "online": "#ff8409",
             "offline": "#ff0000"
         },
-        "title": "🎮 Minecraft Server Status",
+        "title": "🎮 Minecraft 伺服器狀態",
         "footer": {
-            "text": "Made with ❤️ by Team BLK",
-            "iconURL": "https://github.com/BLKOFFICIAL.png"
+            "text": "Made by Hinanson",
+            "iconURL": "https://cdn.discordapp.com/avatars/604308597723365409/a_04ba566e3b6a354e3af18be6e35bd455?size=1024"
         }
     },
     "credits": {
