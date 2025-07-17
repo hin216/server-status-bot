@@ -10,12 +10,12 @@
     },
     "minecraft": {
         "servers": [{
-            "name": "Hypixel",
-            "ip": "hypixel.net",
-            "port": 25565,
+            "name": "Hinanson Server",
+            "ip": "hinanson216.mcsv.pro",
+            "port": 49187,
             "channelId": "1395481135227736085",
             "messageId": "1361782035923992848",
-            "updateInterval": 30000,
+            "updateInterval": 3000,
             "display": {
                 "type": "banner",
                 "banner": {
